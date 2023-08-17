@@ -1,9 +1,11 @@
 class Rectangle {
   area(height, width) {
-    return height * width;
+    const area = height * width;
+    return area;
   }
   perimeter(height, width) {
-    return (height + width) * 2;
+    const perimeter = (height + width) * 2;
+    return perimeter;
   }
 }
 
