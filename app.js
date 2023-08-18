@@ -11,15 +11,14 @@ const main = () => {
   //   });
   //   const dataById = Product.getOneById(10);
   //   console.log(dataById);
-  const updatedData = Product.updateById(18, {
-    publishedAt: "18 Aug 2023",
-  });
-  updatedData.length === 2
-    ? (console.log(updatedData[0]), console.log(updatedData[1]))
-    : console.log(updatedData);
-
-  //   const deleteById = Product.deleteById(7);
-  //   console.log(deleteById);
+  //   const updatedData = Product.updateById(18, {
+  //     publishedAt: "18 Aug 2023",
+  //   });
+  //   updatedData.length === 2
+  //     ? (console.log(updatedData[0]), console.log(updatedData[1]))
+  //     : console.log(updatedData);
+  const deleteById = Product.deleteById(7);
+  console.log(deleteById);
   //   const msg = Product.deleteAll();
   //   console.log(msg);
 };

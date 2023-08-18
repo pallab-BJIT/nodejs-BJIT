@@ -37,9 +37,11 @@ class Product {
     const data = this.getAll();
     const index = data.findIndex((ele) => ele.id === id);
     if (index !== -1) {
-      data.splice(index, 1);
-      fs.writeFileSync("./data/manga.json", JSON.stringify(data));
-      return data;
+      const filteredData = data.filter((ele) => {
+        return ele.id !== id;
+      });
+      fs.writeFileSync("./data/manga.json", JSON.stringify(filteredData));
+      return filteredData;
     } else {
       return "The product does not exist";
     }
