@@ -67,14 +67,14 @@
     "name": "One Piece, Vol. 1",
     "price": 70,
     "stock": 12,
-    "author": "Test User 10"
+    "author": "Test User 10",
+    "publishedAt": "2023-08-18T05:24:09.618Z"
   },
   {
     "id": 11,
     "name": "Naruto, Vol. 1",
     "price": 12,
     "stock": 60,
-    "author": "Pallab Majumdar",
-    "publishedAt": "10 July 2010"
+    "author": "Pallab Majumdar"
   }
 ]

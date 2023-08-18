@@ -27,7 +27,7 @@ class Product {
     if (index !== -1) {
       data[index] = { ...data[index], ...product };
       fs.writeFileSync("./data/manga.json", JSON.stringify(data));
-      return data[index];
+      return ["Product Updated Successfully", data[index]];
     } else {
       return "The product does not exist";
     }

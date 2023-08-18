@@ -13,9 +13,10 @@ const main = () => {
   //   console.log(dataById);
 
   const updatedData = Product.updateById(10, {
-    author: "Test User 10",
+    publishedAt: new Date(),
   });
-  console.log(updatedData);
+  console.log(updatedData[0]);
+  console.log(updatedData[1]);
 
   //   const deleteById = Product.deleteById(7);
   //   console.log(deleteById);
