@@ -44,6 +44,7 @@ class Product {
       return "The product does not exist";
     }
   }
+
   deleteAll() {
     const data = this.getAll();
     data.splice(0, data.length);
