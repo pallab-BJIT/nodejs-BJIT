@@ -11,14 +11,14 @@ const main = () => {
   //   });
   //   const dataById = Product.getOneById(10);
   //   console.log(dataById);
-
   const updatedData = Product.updateById(10, {
     publishedAt: new Date(),
   });
   console.log(updatedData[0]);
   console.log(updatedData[1]);
-
   //   const deleteById = Product.deleteById(7);
   //   console.log(deleteById);
+  //   const msg = Product.deleteAll();
+  //   console.log(msg);
 };
 main();
