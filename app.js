@@ -1,8 +1,21 @@
-const rectangleClass = require("./rectangle");
+const Product = require("./product");
 
-const areaOfRectangle = rectangleClass.area(3, 4);
+const main = () => {
+  //   const total = Product.getAll();
+  //   //   console.log(total);
+  //   Product.add({
+  //     name: "Naruto, Vol. 1",
+  //     price: 9.99,
+  //     stock: 42,
+  //     author: "Pallab Majumdar",
+  //   });
 
-const perimeterOfRectangle = rectangleClass.perimeter(3, 4);
+  //   const dataById = Product.getOneById(10);
+  //   console.log(dataById);
 
-console.log(`Area of rectangle -> ${areaOfRectangle}`);
-console.log(`Perimeter of rectangle -> ${perimeterOfRectangle}`);
+  const updateById = Product.updateById(10, {
+    author: "Test User 3",
+  });
+  //   console.log();
+};
+main();
