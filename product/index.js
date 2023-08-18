@@ -27,9 +27,21 @@ class Product {
     if (index !== -1) {
       data[index] = { ...data[index], ...product };
       fs.writeFileSync("./data/manga.json", JSON.stringify(data));
-      console.log(data[index]);
+      return data[index];
     } else {
-      console.log("The product does not exist");
+      return "The product does not exist";
+    }
+  }
+
+  deleteById(id) {
+    const data = this.getAll();
+    const index = data.findIndex((ele) => ele.id === id);
+    if (index !== -1) {
+      data.splice(index, 1);
+      fs.writeFileSync("./data/manga.json", JSON.stringify(data));
+      return data;
+    } else {
+      return "The product does not exist";
     }
   }
 }

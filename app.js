@@ -9,13 +9,15 @@ const main = () => {
   //     stock: 42,
   //     author: "Pallab Majumdar",
   //   });
-
   //   const dataById = Product.getOneById(10);
   //   console.log(dataById);
 
-  const updateById = Product.updateById(10, {
-    author: "Test User 3",
+  const updatedData = Product.updateById(10, {
+    author: "Test User 10",
   });
-  //   console.log();
+  console.log(updatedData);
+
+  //   const deleteById = Product.deleteById(7);
+  //   console.log(deleteById);
 };
 main();
