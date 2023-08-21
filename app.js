@@ -11,10 +11,9 @@ const main = () => {
     //     author: 'Pallab Majumdar',
     // });
     // console.log(dataAdded);
-    // const dataById = Product.getOneById(10);
     //! Update Data
     // const updatedData = Product.updateById(11, {
-    //     publishedAt: '24 Aug 2023',
+    //     publishedAt: '22 Aug 2023',
     // });
     // console.log(updatedData);
     //! Delete Data
