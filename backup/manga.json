@@ -1,12 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Naruto, Vol. 1",
-        "price": 9.99,
-        "stock": 42,
-        "author": "Masashi Kishimoto"
-    },
-    {
         "id": 2,
         "name": "Naruto, Vol. 2",
         "price": 9.99,
@@ -67,6 +60,7 @@
         "name": "One Piece, Vol. 1",
         "price": 9.99,
         "stock": 124,
-        "author": "Eiichiro Oda"
+        "author": "Eiichiro Oda",
+        "publishedAt": "18 Aug 2023"
     }
 ]
