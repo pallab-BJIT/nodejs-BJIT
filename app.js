@@ -17,7 +17,7 @@ const main = () => {
     //   updatedData.length === 2
     //     ? (console.log(updatedData[0]), console.log(updatedData[1]))
     //     : console.log(updatedData);
-    const deleteById = Product.deleteById(7);
+    const deleteById = Product.deleteById(2);
     console.log(deleteById);
     //   const msg = Product.deleteAll();
     //   console.log(msg);
