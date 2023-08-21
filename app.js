@@ -13,7 +13,7 @@ const main = () => {
     // console.log(dataAdded);
     //! Update Data
     // const updatedData = Product.updateById(11, {
-    //     publishedAt: '22 Aug 2023',
+    //     publishedAt: '30 Aug 2023',
     // });
     // console.log(updatedData);
     //! Delete Data

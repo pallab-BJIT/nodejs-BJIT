@@ -1,8 +1,8 @@
-const BackupEventEmitter = require('./backup-emitter');
 const { backupMangaJson } = require('./backup-controller');
-
-BackupEventEmitter.on('backup', backupMangaJson);
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+emitter.on('backup', backupMangaJson);
 
 setInterval(() => {
-    BackupEventEmitter.emit('backup');
+    emitter.emit('backup');
 }, 2000);
