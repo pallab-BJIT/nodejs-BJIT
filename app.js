@@ -1,8 +1,24 @@
-const rectangleClass = require("./rectangle");
+const Product = require('./product');
 
-const areaOfRectangle = rectangleClass.area(3, 4);
-
-const perimeterOfRectangle = rectangleClass.perimeter(3, 4);
-
-console.log(`Area of rectangle -> ${areaOfRectangle}`);
-console.log(`Perimeter of rectangle -> ${perimeterOfRectangle}`);
+const main = () => {
+    //   const total = Product.getAll();
+    //   //   console.log(total);
+    //! ADD Data
+    // const dataAdded = Product.add({
+    //     name: 'Naruto, Vol. 1',
+    //     price: 9.99,
+    //     stock: 42,
+    //     author: 'Pallab Majumdar',
+    // });
+    // console.log(dataAdded);
+    // const dataById = Product.getOneById(10);
+    //! Update Data
+    // const updatedData = Product.updateById(11, {
+    //     publishedAt: '24 Aug 2023',
+    // });
+    // console.log(updatedData);
+    //! Delete Data
+    const deleteById = Product.deleteById(11);
+    console.log(deleteById);
+};
+main();
