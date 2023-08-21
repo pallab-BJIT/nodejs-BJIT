@@ -28,9 +28,9 @@ class Product {
         if (index !== -1) {
             data[index] = { ...data[index], ...product };
             fs.writeFileSync('./data/manga.json', JSON.stringify(data));
-            return 'Product Updated Successfully';
+            return 'Data Updated Successfully';
         } else {
-            return 'The product does not exist';
+            return 'The data does not exist';
         }
     }
 
@@ -44,7 +44,7 @@ class Product {
             fs.writeFileSync('./data/manga.json', JSON.stringify(filteredData));
             return 'Data deleted successfully';
         } else {
-            return 'The product does not exist';
+            return 'The data does not exist';
         }
     }
 }
