@@ -11,6 +11,22 @@
         "no-unused-vars": "warn",
         "no-console": "off",
         "camelcase": "warn",
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "sort-imports": [
+            "error",
+            {
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ]
     }
 }
