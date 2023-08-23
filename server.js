@@ -7,7 +7,7 @@ const { failure } = require('./util/common');
 const deleteSingleFileById = require('./controllers/data-controller/deleteSingleFile');
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/products/all' && req.method === 'GET') {
+    if (req.url.startsWith('/products/all') && req.method === 'GET') {
         getAllData(req, res);
     } else if (req.url === '/products/add' && req.method === 'POST') {
         addNewData(req, res);
