@@ -56,7 +56,6 @@ const addNewData = (req, res) => {
                 fs.readFile(path, (err, data) => {
                     if (!err) {
                         const jsonData = JSON.parse(data);
-                        console.log(jsonData);
                         const newProduct = {
                             id: jsonData[jsonData.length - 1].id + 1,
                             ...product,
