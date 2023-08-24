@@ -19,21 +19,16 @@ class Product {
     }
 
     async getOneById(id) {
-        return fsPromise
-            .readFile(this.filePath, {
-                encoding: 'utf8',
-            })
-            .then((data) => {
-                const jsonData = JSON.parse(data);
-                const filteredData = jsonData.filter((ele) => {
-                    return ele.id === +id;
-                });
-
-                return { success: true, data: filteredData[0] };
-            })
-            .catch((err) => {
-                return { success: false };
+        try {
+            const result = await this.getAll();
+            const jsonData = JSON.parse(result.data);
+            const filteredData = jsonData.filter((ele) => {
+                return ele.id === +id;
             });
+            return { success: true, data: filteredData[0] };
+        } catch (error) {
+            return { success: false };
+        }
     }
 
     add(product) {

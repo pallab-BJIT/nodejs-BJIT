@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
                 const result = await Product.getOneById(id);
                 if (result.success) {
                     console.log(result);
-                    if (result.data === undefined) {
+                    if (!result.data) {
                         res.writeHead(200, {
                             'Content-Type': 'application/json',
                         });
