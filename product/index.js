@@ -75,16 +75,29 @@ class Product {
         }
     }
 
-    updateById(id, product) {
-        const data = this.getAll();
-        const index = data.findIndex((ele) => ele.id === id);
+    async updateById(id, product) {
+        // const data = this.getAll();
+        // const index = data.findIndex((ele) => ele.id === id);
 
-        if (index !== -1) {
-            data[index] = { ...data[index], ...product };
-            fs.writeFileSync('./data/manga.json', JSON.stringify(data));
-            return 'Data Updated Successfully';
+        // if (index !== -1) {
+        //     data[index] = { ...data[index], ...product };
+        //     fs.writeFileSync('./data/manga.json', JSON.stringify(data));
+        //     return 'Data Updated Successfully';
+        // } else {
+        //     return 'The data does not exist';
+        // }
+        if (!id) {
+            return { success: false, message: 'Please Provide An Id' };
+        }
+        const result = await this.getAll();
+        const jsonData = JSON.parse(result.data);
+        const index = jsonData.findIndex((ele) => ele.id === +id);
+        if (index != -1) {
+            jsonData[index] = { ...jsonData[index], ...product };
+            await fsPromise.writeFile(this.filePath, JSON.stringify(jsonData));
+            return { success: true, data: jsonData };
         } else {
-            return 'The data does not exist';
+            return { success: true };
         }
     }
 

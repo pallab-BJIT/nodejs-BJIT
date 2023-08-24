@@ -27,7 +27,6 @@ const server = http.createServer((req, res) => {
     req.on('end', async () => {
         const requestURL = req.url.split('?')[0];
         if (requestURL === '/products/all' && req.method === 'GET') {
-            // getAllData(req, res);
             try {
                 const result = await Product.getAll();
                 res.setHeader('Content-Type', 'application/json');
@@ -147,13 +146,56 @@ const server = http.createServer((req, res) => {
                         res.writeHead(400, {
                             'Content-Type': 'application/json',
                         });
-                        res.write(success('Cannot delete the data'));
+                        res.write(failure('Cannot delete the data'));
                         return res.end();
                     }
                 }
             } catch (error) {
                 res.writeHead(500, { 'Content-Type': 'application/json' });
                 res.end(failure('Can not delete the data'));
+            }
+        } else if (requestURL === '/products/update' && req.method === 'PUT') {
+            try {
+                const id = getQueryParams(req).id;
+                const result = await Product.updateById(id, JSON.parse(body));
+                if (result.success) {
+                    if (!result.data) {
+                        res.writeHead(200, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(failure('Can not update data with this id'));
+                    } else {
+                        res.writeHead(200, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(
+                            success(
+                                'successfully updated the data',
+                                result.data
+                            )
+                        );
+                    }
+
+                    return res.end();
+                } else {
+                    if (result.message) {
+                        res.writeHead(400, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(failure(result.message));
+                        return res.end();
+                    } else {
+                        res.writeHead(400, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(failure('Cannot update the data'));
+                        return res.end();
+                    }
+                }
+            } catch (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.write(failure('Can not update the data '));
+                return res.end();
             }
         } else {
             res.writeHead(500, { 'Content-Type': 'application/json' });
