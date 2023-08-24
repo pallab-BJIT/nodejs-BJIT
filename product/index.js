@@ -76,16 +76,6 @@ class Product {
     }
 
     async updateById(id, product) {
-        // const data = this.getAll();
-        // const index = data.findIndex((ele) => ele.id === id);
-
-        // if (index !== -1) {
-        //     data[index] = { ...data[index], ...product };
-        //     fs.writeFileSync('./data/manga.json', JSON.stringify(data));
-        //     return 'Data Updated Successfully';
-        // } else {
-        //     return 'The data does not exist';
-        // }
         if (!id) {
             return { success: false, message: 'Please Provide An Id' };
         }
