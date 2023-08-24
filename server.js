@@ -8,6 +8,7 @@ const deleteSingleFileById = require('./controllers/data-controller/deleteSingle
 const updateDataById = require('./controllers/data-controller/updateSingleData');
 // const { getAll } = require('./product');
 const Product = require('./product');
+const { error } = require('console');
 
 const getQueryParams = (req) => {
     const params = new URLSearchParams(req.url.split('?')[1]);
@@ -77,9 +78,44 @@ const server = http.createServer((req, res) => {
                 res.write(failure('Internal server error '));
                 return res.end();
             }
+        } else if (requestURL === '/products/create' && req.method === 'POST') {
+            try {
+                const result = await Product.add(JSON.parse(body));
+                console.log(result);
+                if (result.success) {
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json',
+                    });
+                    res.write(
+                        success('successfully created the data', result.data)
+                    );
+                    return res.end();
+                } else {
+                    res.writeHead(400, { 'Content-Type': 'application/json' });
+                    res.write(failure('Can not create the data', result.error));
+                    return res.end();
+                }
+            } catch (error) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.write(failure('Can not create the data'));
+                return res.end();
+            }
+        } else if (
+            requestURL === '/products/delete' &&
+            req.method === 'DELETE'
+        ) {
+            try {
+                const id = getQueryParams(req).id;
+
+                const result = await Product.deleteById(id);
+                console.log(result);
+            } catch (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(failure('Can not delete the data'));
+            }
         } else {
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(failure('Wrong Route ')));
+            res.end(failure('Wrong Route '));
         }
     });
 });
