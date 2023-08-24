@@ -1,16 +1,16 @@
-const success = (message, data) => {
-    return {
+const success = (message, data = null) => {
+    return JSON.stringify({
         success: true,
         message,
-        data,
-    };
+        data: data,
+    });
 };
 const failure = (message, error = null) => {
-    return {
+    return JSON.stringify({
         success: false,
         message,
         error,
-    };
+    });
 };
 
 module.exports = {

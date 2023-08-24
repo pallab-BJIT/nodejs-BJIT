@@ -1,16 +1,37 @@
 const fs = require('fs');
+const fsPromise = require('fs').promises;
+const path = require('path');
 class Product {
-    getAll() {
-        const data = fs.readFileSync('./data/manga.json', 'utf-8');
-        return JSON.parse(data);
+    filePath = path.join(__dirname, '..', 'data', 'manga.json');
+    async getAll() {
+        return fsPromise
+            .readFile(this.filePath, {
+                encoding: 'utf8',
+            })
+            .then((data) => {
+                return { success: true, data: data };
+            })
+            .catch((err) => {
+                return { success: false };
+            });
     }
 
-    getOneById(id) {
-        const data = this.getAll();
-        const filteredData = data.find((ele) => {
-            return ele.id === id;
-        });
-        return filteredData;
+    async getOneById(id) {
+        return fsPromise
+            .readFile(this.filePath, {
+                encoding: 'utf8',
+            })
+            .then((data) => {
+                const jsonData = JSON.parse(data);
+                const filteredData = jsonData.filter((ele) => {
+                    return ele.id === +id;
+                });
+
+                return { success: true, data: filteredData[0] };
+            })
+            .catch((err) => {
+                return { success: false };
+            });
     }
 
     add(product) {

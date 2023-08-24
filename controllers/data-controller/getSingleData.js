@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { failure, success } = require('../../util/common');
+const { URLSearchParams } = require('url');
+
 const getSingleDataDetails = (req, res) => {
     try {
         const id = +req.url.split('/')[3];

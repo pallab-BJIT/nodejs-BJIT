@@ -1,9 +1,18 @@
 const fs = require('fs');
 const url = require('url');
 const { failure, success } = require('../../util/common');
-
+const getQueryParams = (req) => {
+    const params = new URLSearchParams(req.url.split('?')[1]);
+    const queryParams = {};
+    for (const param of params) {
+        queryParams[param[0]] = param[1];
+    }
+    console.log(queryParams);
+};
 const getAllData = (req, res) => {
     try {
+        getQueryParams(req);
+
         res.writeHead(200, {
             'Content-Type': 'application/json',
         });

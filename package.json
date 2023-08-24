@@ -8,6 +8,11 @@
         "start": "app.js",
         "dev": "nodemon server.js"
     },
+    "nodeMonConfig": {
+        "ignore": [
+            "data/*"
+        ]
+    },
     "author": "Pallab Majumdar-BJIT",
     "license": "ISC",
     "devDependencies": {
