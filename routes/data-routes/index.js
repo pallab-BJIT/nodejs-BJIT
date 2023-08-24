@@ -9,23 +9,53 @@ const updateById = require('../../controller/data-controller/updateData');
 const handleDataRoutes = (req, res, body) => {
     const requestURL = req.url.split('?')[0];
 
-    if (requestURL === '/products/all' && req.method === 'GET') {
-        getAllData(req, res);
-    } else if (requestURL == '/products/details' && req.method === 'GET') {
-        getDataById(req, res);
-    } else if (requestURL === '/products/create' && req.method === 'POST') {
-        createNewData(req, res, body);
-    } else if (requestURL === '/products/delete' && req.method === 'DELETE') {
-        deleteById(req, res);
-    } else if (requestURL === '/products/update' && req.method === 'PUT') {
-        updateById(req, res, body);
-    } else if (requestURL === '/products/sortByPrice' && req.method === 'GET') {
-        sortDataByPrice(req, res);
-    } else if (requestURL === '/products/sortByStock' && req.method === 'GET') {
-        sortDataByStock(req, res);
-    } else {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(failure('Wrong Route '));
+    switch (requestURL) {
+        case '/products/all':
+            if (req.method === 'GET') {
+                getAllData(req, res);
+            }
+            break;
+
+        case '/products/details':
+            if (req.method === 'GET') {
+                getDataById(req, res);
+            }
+            break;
+
+        case '/products/create':
+            if (req.method === 'POST') {
+                createNewData(req, res, body);
+            }
+            break;
+
+        case '/products/delete':
+            if (req.method === 'DELETE') {
+                deleteById(req, res);
+            }
+            break;
+
+        case '/products/update':
+            if (req.method === 'PUT') {
+                updateById(req, res, body);
+            }
+            break;
+
+        case '/products/sortByPrice':
+            if (req.method === 'GET') {
+                sortDataByPrice(req, res);
+            }
+            break;
+
+        case '/products/sortByStock':
+            if (req.method === 'GET') {
+                sortDataByStock(req, res);
+            }
+            break;
+
+        default:
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(failure('Wrong Route '));
+            break;
     }
 };
 
