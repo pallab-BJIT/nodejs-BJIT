@@ -15,3 +15,7 @@
 2023-08-24T13:11:20.668Z - Get all data
 2023-08-24T13:59:14.729Z - Get One  By id
 2023-08-24T13:59:33.377Z - Get One  By id
+2023-08-24T14:09:22.370Z - Get One  By id
+2023-08-24T14:09:24.972Z - Get One  By id
+2023-08-24T14:12:04.099Z - Delete One By Id
+2023-08-24T14:12:07.692Z - Delete One By Id

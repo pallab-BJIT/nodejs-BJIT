@@ -1,7 +1,5 @@
-const fs = require('fs');
 const fsPromise = require('fs').promises;
 const path = require('path');
-const { success } = require('../util/common');
 class Product {
     constructor() {
         this.filePath = path.join(__dirname, '..', 'data', 'manga.json');
