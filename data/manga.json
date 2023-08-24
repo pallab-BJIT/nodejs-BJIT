@@ -47,5 +47,19 @@
         "price": 11.99,
         "stock": 20,
         "author": "Eiichiro Oda"
+    },
+    {
+        "id": 9,
+        "name": "new Test 15",
+        "price": 12.99,
+        "stock": 100,
+        "author": "Eiichiro Oda"
+    },
+    {
+        "id": 10,
+        "name": "new Test 15",
+        "price": 12.99,
+        "stock": 100,
+        "author": "Eiichiro Oda"
     }
 ]

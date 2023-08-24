@@ -6,6 +6,7 @@ const Product = require('./product');
 const addToLog = require('./util/logger');
 const getAllData = require('./controller/data-controller/getAllData');
 const getDataById = require('./controller/data-controller/getDataById');
+const createNewData = require('./controller/data-controller/creteData');
 
 const getQueryParams = (req) => {
     const params = new URLSearchParams(req.url.split('?')[1]);
@@ -28,26 +29,7 @@ const server = http.createServer((req, res) => {
         } else if (requestURL == '/products/details' && req.method === 'GET') {
             getDataById(req, res);
         } else if (requestURL === '/products/create' && req.method === 'POST') {
-            try {
-                const result = await Product.add(JSON.parse(body));
-                if (result.success) {
-                    res.writeHead(200, {
-                        'Content-Type': 'application/json',
-                    });
-                    res.write(
-                        success('successfully created the data', result.data)
-                    );
-                    return res.end();
-                } else {
-                    res.writeHead(400, { 'Content-Type': 'application/json' });
-                    res.write(failure('Can not create the data', result.error));
-                    return res.end();
-                }
-            } catch (error) {
-                res.writeHead(400, { 'Content-Type': 'application/json' });
-                res.write(failure('Can not create the data'));
-                return res.end();
-            }
+            createNewData(req, res, body);
         } else if (
             requestURL === '/products/delete' &&
             req.method === 'DELETE'
