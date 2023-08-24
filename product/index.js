@@ -1,6 +1,7 @@
 const fs = require('fs');
 const fsPromise = require('fs').promises;
 const path = require('path');
+const { success } = require('../util/common');
 class Product {
     constructor() {
         this.filePath = path.join(__dirname, '..', 'data', 'manga.json');
@@ -85,21 +86,25 @@ class Product {
     }
 
     async deleteById(id) {
-        // const data = this.getAll();
-        // const index = data.findIndex((ele) => ele.id === id);
-        // if (index !== -1) {
-        //     const filteredData = data.filter((ele) => {
-        //         return ele.id !== id;
-        //     });
-        //     fs.writeFileSync('./data/manga.json', JSON.stringify(filteredData));
-        //     return 'Data deleted successfully';
-        // } else {
-        //     return 'The data does not exist';
-        // }
         try {
+            if (!id) {
+                return { success: false, message: 'Please provide an id' };
+            }
             const result = await this.getAll();
-
-            console.log(result);
+            const jsonData = JSON.parse(result.data);
+            const index = jsonData.findIndex((ele) => ele.id === +id);
+            if (index != -1) {
+                const filteredData = jsonData.filter((ele) => {
+                    return ele.id != id;
+                });
+                await fsPromise.writeFile(
+                    this.filePath,
+                    JSON.stringify(filteredData)
+                );
+                return { success: true, data: filteredData };
+            } else {
+                return { success: true };
+            }
         } catch (error) {
             return { success: false };
         }

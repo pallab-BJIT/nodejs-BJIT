@@ -50,21 +50,6 @@
     },
     {
         "id": 9,
-        "name": "Updated name",
-        "price": 12.99,
-        "stock": 200,
-        "author": "Eiichiro Oda",
-        "publishedAt": "24 Aug 2023"
-    },
-    {
-        "id": 10,
-        "name": "Pallab Majumdar",
-        "price": 12.99,
-        "stock": 200,
-        "author": "Eiichiro Oda"
-    },
-    {
-        "id": 11,
         "name": "Pallab Majumdar",
         "price": 20,
         "stock": 10,
