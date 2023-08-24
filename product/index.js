@@ -21,6 +21,9 @@ class Product {
 
     async getOneById(id) {
         try {
+            if (!id) {
+                return { success: false, message: 'Please Provide An Id' };
+            }
             const result = await this.getAll();
             const jsonData = JSON.parse(result.data);
             const filteredData = jsonData.filter((ele) => {
@@ -88,7 +91,7 @@ class Product {
     async deleteById(id) {
         try {
             if (!id) {
-                return { success: false, message: 'Please provide an id' };
+                return { success: false, message: 'Please Provide An Id' };
             }
             const result = await this.getAll();
             const jsonData = JSON.parse(result.data);

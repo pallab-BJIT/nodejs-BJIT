@@ -68,8 +68,18 @@ const server = http.createServer((req, res) => {
 
                     return res.end();
                 } else {
-                    res.writeHead(400, { 'Content-Type': 'application/json' });
-                    res.write(failure('Can not get the data'));
+                    if (result.message) {
+                        res.writeHead(400, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(failure(result.message));
+                    } else {
+                        res.writeHead(400, {
+                            'Content-Type': 'application/json',
+                        });
+                        res.write(failure('Can not get the data'));
+                    }
+
                     return res.end();
                 }
             } catch (error) {
