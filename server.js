@@ -204,6 +204,61 @@ const server = http.createServer((req, res) => {
                 res.write(failure('Can not update the data '));
                 return res.end();
             }
+        } else if (
+            requestURL === '/products/sortByPrice' &&
+            req.method === 'GET'
+        ) {
+            try {
+                const queryParams = getQueryParams(req)._sort;
+                const result = await Product.sortByPrice(queryParams);
+                console.log(result.data);
+                if (result.success) {
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json',
+                    });
+                    res.write(
+                        success('successfully get the data', result.data)
+                    );
+                    return res.end();
+                } else {
+                    res.writeHead(400, {
+                        'Content-Type': 'application/json',
+                    });
+                    res.write(failure('Cannot get the data'));
+                    return res.end();
+                }
+            } catch (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.write(failure('Can not update the data '));
+                return res.end();
+            }
+        } else if (
+            requestURL === '/products/sortByStock' &&
+            req.method === 'GET'
+        ) {
+            try {
+                const queryParams = getQueryParams(req)._sort;
+                const result = await Product.sortByStock(queryParams);
+                if (result.success) {
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json',
+                    });
+                    res.write(
+                        success('successfully get the data', result.data)
+                    );
+                    return res.end();
+                } else {
+                    res.writeHead(400, {
+                        'Content-Type': 'application/json',
+                    });
+                    res.write(failure('Cannot get the data'));
+                    return res.end();
+                }
+            } catch (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.write(failure('Can not update the data '));
+                return res.end();
+            }
         } else {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.end(failure('Wrong Route '));

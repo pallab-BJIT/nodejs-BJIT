@@ -3,3 +3,13 @@
 2023-08-24T09:44:13.737Z - Create New Data
 2023-08-24T09:45:05.618Z - Update One By Id
 2023-08-24T09:45:52.231Z - Delete One By Id
+2023-08-24T13:09:00.584Z - Get all data
+2023-08-24T13:09:36.617Z - Get One  By id
+2023-08-24T13:09:45.076Z - Get One  By id
+2023-08-24T13:10:33.193Z - Create New Data
+2023-08-24T13:10:43.864Z - Create New Data
+2023-08-24T13:10:51.845Z - Get all data
+2023-08-24T13:11:02.056Z - Update One By Id
+2023-08-24T13:11:09.700Z - Get One  By id
+2023-08-24T13:11:16.927Z - Delete One By Id
+2023-08-24T13:11:20.668Z - Get all data

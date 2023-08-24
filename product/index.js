@@ -115,6 +115,47 @@ class Product {
             return { success: false };
         }
     }
+    async sortByPrice(queryParams) {
+        try {
+            const result = await this.getAll();
+            const jsonData = JSON.parse(result.data);
+
+            if (queryParams == 'ASC') {
+                const sortedData = jsonData
+                    .slice()
+                    .sort((a, b) => a.price - b.price);
+                return { success: true, data: sortedData };
+            } else if (queryParams == 'DESC') {
+                const sortedData = jsonData
+                    .slice()
+                    .sort((a, b) => b.price - a.price);
+                return { success: true, data: sortedData };
+            }
+        } catch (error) {
+            return { success: false };
+        }
+    }
+
+    async sortByStock(queryParams) {
+        try {
+            const result = await this.getAll();
+            const jsonData = JSON.parse(result.data);
+
+            if (queryParams == 'ASC') {
+                const sortedData = jsonData
+                    .slice()
+                    .sort((a, b) => a.stock - b.stock);
+                return { success: true, data: sortedData };
+            } else if (queryParams == 'DESC') {
+                const sortedData = jsonData
+                    .slice()
+                    .sort((a, b) => b.stock - a.stock);
+                return { success: true, data: sortedData };
+            }
+        } catch (error) {
+            return { success: false };
+        }
+    }
 }
 
 module.exports = new Product();
