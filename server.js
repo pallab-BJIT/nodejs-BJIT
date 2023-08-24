@@ -9,6 +9,7 @@ const updateDataById = require('./controllers/data-controller/updateSingleData')
 // const { getAll } = require('./product');
 const Product = require('./product');
 const { error } = require('console');
+const addToLog = require('./util/logger');
 
 const getQueryParams = (req) => {
     const params = new URLSearchParams(req.url.split('?')[1]);
@@ -30,6 +31,7 @@ const server = http.createServer((req, res) => {
             try {
                 const result = await Product.getAll();
                 res.setHeader('Content-Type', 'application/json');
+                addToLog('Get all data');
                 if (result.success) {
                     res.writeHead(200);
                     res.end(
@@ -50,6 +52,8 @@ const server = http.createServer((req, res) => {
             try {
                 const id = getQueryParams(req).id;
                 const result = await Product.getOneById(id);
+                addToLog('Get One  By id');
+
                 if (result.success) {
                     if (!result.data) {
                         res.writeHead(200, {
@@ -89,7 +93,7 @@ const server = http.createServer((req, res) => {
         } else if (requestURL === '/products/create' && req.method === 'POST') {
             try {
                 const result = await Product.add(JSON.parse(body));
-                console.log(result);
+                addToLog('Create New Data');
                 if (result.success) {
                     res.writeHead(200, {
                         'Content-Type': 'application/json',
@@ -115,6 +119,7 @@ const server = http.createServer((req, res) => {
             try {
                 const id = getQueryParams(req).id;
                 const result = await Product.deleteById(id);
+                addToLog('Delete One By Id');
 
                 if (result.success) {
                     if (!result.data) {
@@ -158,6 +163,8 @@ const server = http.createServer((req, res) => {
             try {
                 const id = getQueryParams(req).id;
                 const result = await Product.updateById(id, JSON.parse(body));
+                addToLog('Update One By Id');
+
                 if (result.success) {
                     if (!result.data) {
                         res.writeHead(200, {
