@@ -19,3 +19,5 @@
 2023-08-24T14:09:24.972Z - Get One  By id
 2023-08-24T14:12:04.099Z - Delete One By Id
 2023-08-24T14:12:07.692Z - Delete One By Id
+2023-08-24T14:19:26.952Z - Update One By Id
+2023-08-24T14:19:40.044Z - Update One By Id
