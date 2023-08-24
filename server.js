@@ -16,17 +16,37 @@ const server = http.createServer((req, res) => {
         req.url.startsWith('/products/getOneById/') &&
         req.method === 'GET'
     ) {
-        getSingleDataDetails(req, res);
+        const parts = req.url.split('/');
+        if (parts.length > 4) {
+            res.writeHead(400, { 'Content-Type': 'Application/json' });
+            res.end(JSON.stringify(failure('Wrong Route')));
+        } else {
+            getSingleDataDetails(req, res);
+        }
     } else if (
         req.url.startsWith('/products/deleteOneById/') &&
         req.method === 'DELETE'
     ) {
-        deleteSingleFileById(req, res);
+        const parts = req.url.split('/');
+
+        if (parts.length > 4) {
+            res.writeHead(400, { 'Content-Type': 'Application/json' });
+            res.end(JSON.stringify(failure('Wrong Route')));
+        } else {
+            deleteSingleFileById(req, res);
+        }
     } else if (
         req.url.startsWith('/products/updateOneById/') &&
         req.method === 'PUT'
     ) {
-        updateDataById(req, res);
+        const parts = req.url.split('/');
+
+        if (parts.length > 4) {
+            res.writeHead(400, { 'Content-Type': 'Application/json' });
+            res.end(JSON.stringify(failure('Wrong Route')));
+        } else {
+            updateDataById(req, res);
+        }
     } else {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(failure('Wrong Route')));
