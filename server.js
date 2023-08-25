@@ -10,7 +10,6 @@ const server = http.createServer((req, res) => {
         body += buffer;
     });
     req.on('end', async () => {
-        console.log('1111', req.url);
         if (req.url.includes('products')) {
             handleDataRoutes(req, res, body);
         } else if (req.url.includes('orders')) {
