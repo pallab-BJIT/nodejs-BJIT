@@ -1,5 +1,6 @@
 const fsPromise = require('fs').promises;
 const path = require('path');
+const product = require('../product');
 
 class Orders {
     constructor() {
@@ -28,8 +29,19 @@ class Orders {
             const filteredData = jsonData.filter((ele) => {
                 return ele.user.id === +id;
             });
-            return { success: true, data: filteredData[0] };
-            // console.log(jsonData);
+            const productsId = filteredData[0].products;
+            const productData = await product.getAll();
+            const parsedProductData = JSON.parse(productData.data);
+
+            const newData = parsedProductData.filter((product) => {
+                return productsId.includes(product.id);
+            });
+            const responseData = {
+                id: id,
+                user: filteredData[0].user,
+                product: newData,
+            };
+            return { success: true, data: responseData };
         } catch (error) {
             return { success: false };
         }
