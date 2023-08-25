@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "user": {
+            "id": 1,
+            "name": "Pallab Majumdar",
+            "email": "majumdarp79@gmail.com",
+            "age": 23
+        },
+        "products": [
+            {
+                "id": 2,
+                "name": "Naruto, Vol. 2",
+                "price": 9.99,
+                "stock": 33,
+                "author": "Masashi Kishimoto",
+                "quantity": 2
+            },
+            {
+                "id": 3,
+                "name": "Naruto, Vol. 3",
+                "price": 9.99,
+                "stock": 26,
+                "author": "Masashi Kishimoto"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "user": {
+            "id": 2,
+            "name": "Test User",
+            "email": "test@gmail.com",
+            "age": 27
+        },
+        "products": [
+            {
+                "id": 6,
+                "name": "Bleach, Vol. 25",
+                "price": 9.99,
+                "stock": 50,
+                "author": "Tite Kubo",
+                "quantity": 10
+            },
+            {
+                "id": 10,
+                "name": "new Test 15",
+                "price": 12.99,
+                "stock": 100,
+                "author": "Eiichiro Oda",
+                "quantity": 10
+            }
+        ]
+    }
+]
