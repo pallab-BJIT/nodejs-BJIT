@@ -18,6 +18,22 @@ class Orders {
                 return { success: false };
             });
     }
+    async getOrdersByUserId(id) {
+        try {
+            if (!id) {
+                return { success: false, message: 'Please Provide An Id' };
+            }
+            const result = await this.getAllOrders();
+            const jsonData = JSON.parse(result.data);
+            const filteredData = jsonData.filter((ele) => {
+                return ele.user.id === +id;
+            });
+            return { success: true, data: filteredData[0] };
+            // console.log(jsonData);
+        } catch (error) {
+            return { success: false };
+        }
+    }
 }
 
 module.exports = new Orders();
