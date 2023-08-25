@@ -2,7 +2,7 @@ const http = require('http');
 const dataRoutes = require('./routes/data-routes');
 const handleDataRoutes = require('./routes/data-routes');
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
+const PORT = 8000;
 const server = http.createServer((req, res) => {
     let body = '';
     req.on('data', (buffer) => {

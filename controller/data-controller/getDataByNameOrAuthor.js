@@ -1,11 +1,11 @@
 const getQueryParams = require('../../helper/extractQueryParams');
 const product = require('../../product');
-const { success, failure } = require('../../util/common');
+const { failure, success } = require('../../util/common');
 
-const sortDataByPrice = async (req, res) => {
+const getDataByNameOrAuthor = async (req, res) => {
     try {
-        const queryParams = getQueryParams(req)._sort;
-        const result = await product.sortByPrice(queryParams);
+        const queryParams = getQueryParams(req);
+        const result = await product.getDataByNameOrAuthor(queryParams);
         if (result.success) {
             res.writeHead(200, {
                 'Content-Type': 'application/json',
@@ -21,9 +21,9 @@ const sortDataByPrice = async (req, res) => {
         }
     } catch (error) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.write(failure('Can not get the data '));
+        res.write(failure('Internal server error '));
         return res.end();
     }
 };
 
-module.exports = sortDataByPrice;
+module.exports = getDataByNameOrAuthor;

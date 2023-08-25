@@ -2,9 +2,11 @@ const createNewData = require('../../controller/data-controller/creteData');
 const deleteById = require('../../controller/data-controller/deleteDataById');
 const getAllData = require('../../controller/data-controller/getAllData');
 const getDataById = require('../../controller/data-controller/getDataById');
+const getDataByNameOrAuthor = require('../../controller/data-controller/getDataByNameOrAuthor');
 const sortDataByPrice = require('../../controller/data-controller/sortDataByPrice');
 const sortDataByStock = require('../../controller/data-controller/sortDataByStock');
 const updateById = require('../../controller/data-controller/updateData');
+const { failure } = require('../../util/common');
 
 const handleDataRoutes = (req, res, body) => {
     const requestURL = req.url.split('?')[0];
@@ -49,6 +51,12 @@ const handleDataRoutes = (req, res, body) => {
         case '/products/sortByStock':
             if (req.method === 'GET') {
                 sortDataByStock(req, res);
+            }
+            break;
+
+        case '/products/findByNameOrAuthor':
+            if (req.method === 'GET') {
+                getDataByNameOrAuthor(req, res);
             }
             break;
 

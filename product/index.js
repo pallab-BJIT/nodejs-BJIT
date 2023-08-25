@@ -154,6 +154,38 @@ class Product {
             return { success: false };
         }
     }
+
+    async getDataByNameOrAuthor(queryParams) {
+        try {
+            const result = await this.getAll();
+            const jsonData = JSON.parse(result.data);
+            if (!queryParams.name && !queryParams.author) {
+                return { success: false };
+            } else {
+                if (queryParams.name && queryParams.author) {
+                    const filterByNameAndAuthor = jsonData.filter((ele) => {
+                        return (
+                            ele.name === queryParams.name &&
+                            ele.author === queryParams.author
+                        );
+                    });
+                    return { success: true, data: filterByNameAndAuthor };
+                } else if (queryParams.author) {
+                    const filterByAuthor = jsonData.filter((ele) => {
+                        return ele.author === queryParams.author;
+                    });
+                    return { success: true, data: filterByAuthor };
+                } else if (queryParams.name) {
+                    const filterByName = jsonData.filter((ele) => {
+                        return ele.name === queryParams.name;
+                    });
+                    return { success: true, data: filterByName };
+                }
+            }
+        } catch (error) {
+            return { success: false };
+        }
+    }
 }
 
 module.exports = new Product();

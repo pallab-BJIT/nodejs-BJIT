@@ -21,7 +21,7 @@ const sortDataByStock = async (req, res) => {
         }
     } catch (error) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.write(failure('Can not update the data '));
+        res.write(failure('Can not get the data '));
         return res.end();
     }
 };
