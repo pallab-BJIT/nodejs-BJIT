@@ -18,6 +18,21 @@ class Users {
                 return { success: false };
             });
     }
+    async getUserById(id) {
+        try {
+            if (!id) {
+                return { success: false, message: 'Please Provide An Id' };
+            }
+            const result = await this.getAllUsers();
+            const jsonData = JSON.parse(result.data);
+            const filteredData = jsonData.filter((ele) => {
+                return ele.id === +id;
+            });
+            return { success: true, data: filteredData[0] };
+        } catch (error) {
+            return { success: false };
+        }
+    }
 }
 
 module.exports = new Users();
