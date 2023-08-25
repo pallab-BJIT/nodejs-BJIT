@@ -1,5 +1,5 @@
-const orders = require('../../orders');
-const users = require('../../users');
+const orders = require('../../model/orders');
+const users = require('../../model/users');
 const { success, failure } = require('../../util/common');
 
 const getAllUsers = async (req, res) => {

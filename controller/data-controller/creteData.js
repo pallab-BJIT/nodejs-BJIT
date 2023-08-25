@@ -1,4 +1,4 @@
-const product = require('../../product');
+const product = require('../../model/product');
 const { success, failure } = require('../../util/common');
 
 const createNewData = async (req, res, body) => {

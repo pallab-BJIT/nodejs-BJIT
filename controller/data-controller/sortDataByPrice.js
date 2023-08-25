@@ -1,5 +1,5 @@
 const getQueryParams = require('../../helper/extractQueryParams');
-const product = require('../../product');
+const product = require('../../model/product');
 const { success, failure } = require('../../util/common');
 
 const sortDataByPrice = async (req, res) => {

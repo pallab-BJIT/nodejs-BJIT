@@ -3,7 +3,7 @@ const path = require('path');
 
 class Orders {
     constructor() {
-        this.filePath = path.join(__dirname, '..', 'data', 'orders.json');
+        this.filePath = path.join(__dirname, '..', '..', 'data', 'orders.json');
     }
 
     async getAllOrders() {

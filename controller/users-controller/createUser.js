@@ -1,5 +1,4 @@
-const product = require('../../product');
-const users = require('../../users');
+const users = require('../../model/users');
 const { success, failure } = require('../../util/common');
 
 const createNewUser = async (req, res, body) => {

@@ -1,10 +1,10 @@
 const fsPromise = require('fs').promises;
 const path = require('path');
-const EMAIL_REGEX = require('../constant');
+const EMAIL_REGEX = require('../../constant');
 
 class Users {
     constructor() {
-        this.filePath = path.join(__dirname, '..', 'data', 'users.json');
+        this.filePath = path.join(__dirname, '..', '..', 'data', 'users.json');
     }
 
     async getAllUsers() {

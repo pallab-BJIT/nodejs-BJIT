@@ -1,4 +1,4 @@
-const product = require('../../product');
+const product = require('../../model/product');
 const { success, failure } = require('../../util/common');
 
 const getAllData = async (req, res) => {

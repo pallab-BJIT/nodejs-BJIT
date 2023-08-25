@@ -2,7 +2,7 @@ const fsPromise = require('fs').promises;
 const path = require('path');
 class Product {
     constructor() {
-        this.filePath = path.join(__dirname, '..', 'data', 'manga.json');
+        this.filePath = path.join(__dirname, '..', '..', 'data', 'manga.json');
     }
     async getAll() {
         return fsPromise

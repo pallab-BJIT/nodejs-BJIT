@@ -1,5 +1,5 @@
 const getQueryParams = require('../../helper/extractQueryParams');
-const product = require('../../product');
+const product = require('../../model/product');
 const { failure, success } = require('../../util/common');
 
 const getDataByNameOrAuthor = async (req, res) => {

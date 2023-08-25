@@ -1,6 +1,6 @@
 const getQueryParams = require('../../helper/extractQueryParams');
-const product = require('../../product');
-const users = require('../../users');
+const product = require('../../model/product');
+const users = require('../../model/users');
 const { failure, success } = require('../../util/common');
 const addToLog = require('../../util/logger');
 

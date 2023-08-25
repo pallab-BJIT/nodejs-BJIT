@@ -1,5 +1,5 @@
 const getQueryParams = require('../../helper/extractQueryParams');
-const users = require('../../users');
+const users = require('../../model/users');
 const { failure, success } = require('../../util/common');
 
 const deleteUserById = async (req, res) => {
