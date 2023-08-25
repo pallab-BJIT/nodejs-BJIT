@@ -4,9 +4,7 @@ const { success, failure } = require('../../util/common');
 
 const createNewUser = async (req, res, body) => {
     try {
-        console.log('Create new user');
         const result = await users.createNewUser(JSON.parse(body));
-        console.log('create user', result);
         if (result.success) {
             res.writeHead(200, {
                 'Content-Type': 'application/json',
